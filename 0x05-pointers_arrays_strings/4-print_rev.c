@@ -5,6 +5,10 @@
 * @s: the string to be printed in rev
 */
 
+int _putchar(char c) {
+    return putchar(c);
+}
+
 void print_rev(char *s)
 {
   int length = 0;
