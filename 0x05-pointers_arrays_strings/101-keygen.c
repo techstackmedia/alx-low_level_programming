@@ -1,40 +1,30 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
- * _atoi - Convert a string to an integer.
- * @s: The pointer to convert
+ * main - Entry point
  *
- * Return: A integer
+ * Return: Always 0
  */
-int _atoi(char *s)
+int main(void)
 {
-	int c = 0;
-	unsigned int ni = 0;
-	int min = 1;
-	int isi = 0;
+	int password_length = 12;
+	char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	char password[13];
+	int i;
 
-	while (s[c])
+	srand(time(0));
+
+	for (i = 0; i < password_length; i++)
 	{
-		if (s[c] == 45)
-		{
-			min *= -1;
-		}
-
-		while (s[c] >= 48 && s[c] <= 57)
-		{
-			isi = 1;
-			ni = (ni * 10) + (s[c] - '0');
-			c++;
-		}
-
-		if (isi == 1)
-		{
-			break;
-		}
-
-		c++;
+		password[i] = charset[rand() % (sizeof(charset) - 1)];
 	}
 
-	ni *= min;
-	return (ni);
+	password[password_length] = '\0';
+
+	printf("%s\n", password);
+
+	return 0;
 }
+
