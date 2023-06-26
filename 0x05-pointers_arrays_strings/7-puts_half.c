@@ -1,28 +1,23 @@
 #include "main.h"
-
 /**
- * puts_half - Prints the second half of a string
- * @str: Pointer to the string - techstackmedia.com
+ * puts_half - prints half of a string
+ * @str: char to check
+ *
+ * Return: 0 is success
  */
 void puts_half(char *str)
 {
-	int length = 0;
-	int i;
-	int n;
+	int string = 0, n;
 
-	while (*(str + length) != '\0')
-		length++;
-
-	if (length % 2 == 0)
-		n = length / 2;
+	while (str[string] != '\0')
+		string++;
+	if (string + 1 % 2 != '0')
+		n = (string - 1) / 2;
 	else
-		n = (length + 1) / 2;
+		n = (string / 2);
+	n++;
 
-	for (i = n; i < length; i++) 
-	       _putchar(*(str + i));
-	}
-
+	for (string = n; str[string] != '\0'; string++)
+	_putchar(str[string]);
 	_putchar('\n');
 }
-
-
