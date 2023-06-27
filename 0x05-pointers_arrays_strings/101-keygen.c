@@ -14,7 +14,7 @@ int main(void)
     char expected_password[] = "Tada! Congrats";
     char password[16];
 
-    strncpy(password, expected_password, password_length);
+    strcpy(password, expected_password);
     password[password_length] = '\0';
 
     printf("%s\n", password);
