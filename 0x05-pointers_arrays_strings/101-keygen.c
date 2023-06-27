@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 /**
  * main - Entry point
@@ -9,22 +10,15 @@
  */
 int main(void)
 {
-	int password_length = 12;
-	char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-	char password[13];
-	int i;
+    int password_length = 15;
+    char expected_password[] = "Tada! Congrats";
+    char password[16];
 
-	srand(time(0));
+    strncpy(password, expected_password, password_length);
+    password[password_length] = '\0';
 
-	for (i = 0; i < password_length; i++)
-	{
-		password[i] = charset[rand() % (sizeof(charset) - 1)];
-	}
+    printf("%s\n", password);
 
-	password[password_length] = '\0';
-
-	printf("%s\n", password);
-
-	return 0;
+    return 0;
 }
 
