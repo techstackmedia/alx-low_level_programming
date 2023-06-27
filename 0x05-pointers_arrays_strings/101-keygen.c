@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <string.h>
 
 /**
  * main - Entry point
@@ -10,25 +9,22 @@
  */
 int main(void)
 {
-    int password_length = 15;
-    char expected_password[] = "Tada! Congrats";
-    char password[16];
-    int i;
+	int password_length = 12;
+	char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	char password[13];
+	int i;
 
-    srand(time(0));
+	srand(time(0));
 
-    for (i = 0; i < password_length; i++)
-    {
-        password[i] = rand() % 94 + 32;  // ASCII printable characters range from 32 to 126
-    }
+	for (i = 0; i < password_length; i++)
+	{
+		password[i] = charset[rand() % (sizeof(charset) - 1)];
+	}
 
-    password[password_length] = '\0';
+	password[password_length] = '\0';
 
-    // Copy the expected password to the generated password
-    strncpy(password, expected_password, password_length);
+	printf("%s\n", password);
 
-    printf("%s\n", password);
-
-    return 0;
+	return 0;
 }
 
