@@ -9,7 +9,6 @@
  */
 int main(void)
 {
-	int password_length = 12;
 	char password[] = "Tada! Congrats";
 
 	srand(time(0));
